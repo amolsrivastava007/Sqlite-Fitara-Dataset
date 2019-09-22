@@ -1,0 +1,26 @@
+<!doctype html>
+
+<html>
+      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/styling.css') }}">
+
+   <body>
+      <table >
+         <thead>
+            <td bgcolor="#FF0000" ><b>Text</b></td>
+            <td bgcolor="#FF0000" ><b>Prediction</b></td>
+            <td bgcolor="#FF0000" ><b>IS Document_FITARA</b></td>
+         </thead>
+         
+         {% for row in rows %}
+            <tr>
+               <td>{{row.doc}}</td>
+               <td>{{row.prediction}}</td>
+	           <td>{{row.ans}}</td>
+            </tr>
+         {% endfor %}
+      </table>
+      
+      <br> 
+            <a  href = "/" style= " margin:20px auto;  text-align:center;  display:block; width:120px; "> Home page </a>
+   </body>
+</html>
