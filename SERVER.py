@@ -94,7 +94,7 @@ def add():
 	else:
 		from sklearn.externals import joblib 
 		
-		nb = joblib.load('NB.pkl')
+		nb = joblib.load('NaiveB.pkl')
 		cv=joblib.load('cv.pkl')
 	
 		tr = cv.transform(text)
