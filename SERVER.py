@@ -10,7 +10,6 @@ import sqlite3 as sql
 
 app = Flask(__name__)
 
-#Render the home html file
 @app.route('/')
 def home():
 	return render_template('home.html')
@@ -18,20 +17,20 @@ def home():
 @app.route('/list')
 def list():
 
-   #CONNECTING TO THE FITARA DATASET
+   #CONNECTING TO  DATASET
    con = sql.connect("FITARA.db")
    
-   #CREATE A ROW OBJECT
+   #CREATING A ROW OBJECT
    con.row_factory = sql.Row
    
-   #CREATE A CURSOR
+   #CREATING A CURSOR
    cur = con.cursor()
    cur.execute("select * from fitt")
    
-   #GET ALL THE ROWS
+   #FETCH ALL THE ROWS
    rows = cur.fetchall();	
    
-   #PASS THE ROW VALUES TO LIST.HTML
+  
    return render_template("list.html",rows = rows)
 @app.route('/addML', methods = ['POST'])
 def addML():
@@ -81,9 +80,9 @@ def add():
 		tokenizer = tf.keras.preprocessing.text.Tokenizer(num_words=MAX_NB_WORDS, filters='!"#$%&()*+,-./:;<=>?@[\]^_`{|}~', lower=True)
 		tokenizer.fit_on_texts(text)
 		word_index = tokenizer.word_index
-	#	print(len(word_index))
+	
 
-		X = tokenizer.texts_to_sequences(text)                         #Tokenize the dataset
+		X = tokenizer.texts_to_sequences(text)                         
 		X = tf.keras.preprocessing.sequence.pad_sequences(X, maxlen=MAX_SEQUENCE_LENGTH)
 
 		#Make prediction using the pre-trained model
@@ -94,7 +93,7 @@ def add():
 
 	else:
 		from sklearn.externals import joblib 
-		print("Using ML")
+		
 		nb = joblib.load('NB.pkl')
 		cv=joblib.load('cv.pkl')
 	
@@ -105,7 +104,7 @@ def add():
 		print("Predicton is " +str(my_prediction))
 		my_prediction=my_prediction[0][1]
 
-	#Since my_prediction was in Numpy Float, SQLite accepts only Native Float
+	
 	my_prediction=float(my_prediction)
 
 	answer=""
