@@ -1,0 +1,33 @@
+body{
+	margin-top: 100px;
+	color: white;
+	background-image:url('../../static/images/umberto-FewHpO4VC9Y-unsplash.jpg')
+}
+.page1div{
+ height: 300px;width: 100%;margin-top: -100px ;margin-bottom: 0px}
+}
+.divi{
+color: white; text-align: center;padding-top: 150px;
+}
+.big{
+	padding: 50px
+}
+h3{
+	color:white;
+}
+ th, td {
+  padding: 8px;
+  text-align: left;
+  border : 1px solid white;
+  color: #00FFFF;
+  
+}
+table{
+	margin-left:5%;text-align:center;border : 1px solid black;border-collapse: collapse;
+  width: 100%;color: white
+}
+div,a{
+	color: white
+}
+.result{text-align: center;font-size: 20px}
+.resultA{text-align: center;font-size: 20px}
